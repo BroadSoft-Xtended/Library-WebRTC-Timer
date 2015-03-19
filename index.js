@@ -1,0 +1,1 @@
+module.exports = {view: require('./lib/views/timer'), model: require('./lib/models/timer')};
