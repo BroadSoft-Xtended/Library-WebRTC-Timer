@@ -14,17 +14,17 @@
     .text
       text-align center
   @css {
-    .timer {
+    .bdsft-client .timer {
       color: <%= timerColor %>;
     }
   }
 
-.bdsft-client.view-audioOnly .timer
+  .timer.audioOnly
     position relative
     margin-right 10px
 
-.bdsft-client.enableCallTimer.started .timer
-  {fadeIn}
+  .timer.enableCallTimer.started
+    {fadeIn}
 
-.bdsft-client:not(.started) .timer
-  {fadeOut}
+  .timer:not(.started)
+    {fadeOut}

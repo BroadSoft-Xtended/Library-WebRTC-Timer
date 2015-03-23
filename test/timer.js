@@ -14,8 +14,12 @@ describe('timer', function() {
     testUA.createModelAndView('timer', {timer: require('../')});
   });
 
+it('with audioOnly view', function() {
+  configuration.view = 'audioOnly';
+  expect(timerview.timer.attr('class')).toEqual('timer fadeable classes  enableCallTimer audioOnly');
+});
 it('format', function() {
-  expect(timerview.text.text()).toEqual( '');
+  expect(timerview.text.text()).toEqual( '00:00:00');
   testUA.startCall();
   expect(timer.text).toEqual( '00:00:00');
   testUA.endCall();
