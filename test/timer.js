@@ -16,7 +16,7 @@ describe('timer', function() {
 
 it('with audioOnly view', function() {
   configuration.view = 'audioOnly';
-  expect(timerview.timer.attr('class')).toEqual('timer fadeable classes  enableCallTimer audioOnly');
+  expect(timerview.timer.attr('class')).toEqual('timer fadeable classes enableCallTimer audioOnly');
 });
 it('format', function() {
   expect(timerview.text.text()).toEqual( '00:00:00');
