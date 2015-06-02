@@ -7,15 +7,14 @@ describe('timer', function() {
   before(function(){
     core = require('webrtc-core');
     testUA = core.testUA;
-    config = {enableCallTimer: true};
-    testUA.createCore('configuration', config);
-    testUA.createCore('sipstack', config);
+    testUA.createCore('urlconfig');
+    testUA.createCore('sipstack');
     testUA.mockWebRTC();
     testUA.createModelAndView('timer', {timer: require('../')});
   });
 
 it('with audioOnly view', function() {
-  configuration.view = 'audioOnly';
+  urlconfig.view = 'audioOnly';
   expect(timerview.timer.attr('class')).toEqual('timer fadeable classes enableCallTimer audioOnly');
 });
 it('format', function() {
@@ -33,7 +32,7 @@ it('timer on call started with enableCallTimer = true', function() {
   expect(timer.text).toEqual( '00:00:00');
 });
 it('timer on call started with enableCallTimer = false', function() {
-  configuration.enableCallTimer = false;
+  timer.enableCallTimer = false;
   testUA.isVisible(timerview.timer, false);
   testUA.startCall();
   testUA.isVisible(timerview.timer, false);
