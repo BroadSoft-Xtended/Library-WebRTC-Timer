@@ -15,7 +15,7 @@ describe('timer', function() {
 
 it('with audioOnly view', function() {
   urlconfig.view = 'audioOnly';
-  expect(timerview.timer.attr('class')).toEqual('timer fadeable classes enableCallTimer audioOnly');
+  expect(timer.classes).toEqual(['enableCallTimer', 'audioOnly']);
 });
 it('format', function() {
   expect(timerview.text.text()).toEqual( '00:00:00');
@@ -24,19 +24,33 @@ it('format', function() {
   testUA.endCall();
 });
 it('timer on call started with enableCallTimer = true', function() {
-  testUA.isVisible(timerview.timer, false);
+  testUA.isVisible(timerview.view.find('.timer'), false);
   testUA.startCall();
-  testUA.isVisible(timerview.timer, true);
+  testUA.isVisible(timerview.view.find('.timer'), true);
   testUA.endCall();
-  testUA.isVisible(timerview.timer, false);
+  testUA.isVisible(timerview.view.find('.timer'), false);
+  expect(timer.text).toEqual( '00:00:00');
+});
+it('hold and answer and resume', function() {
+  sipstack.enableAutoAnswer = true;
+  var call = testUA.startCall();
+  timer.text = '01:01:01';
+  sipstack.hold();
+  incomingCall = testUA.incomingCall();
+  sipstack.terminateSession(incomingCall);
+  sipstack.unhold();
+  expect(sipstack.sessions.length).toEqual(1);
+  expect(timer.text).toEqual( '01:01:01');
+  sipstack.terminateSession(call);
+  expect(sipstack.sessions.length).toEqual(0);
   expect(timer.text).toEqual( '00:00:00');
 });
 it('timer on call started with enableCallTimer = false', function() {
   timer.enableCallTimer = false;
-  testUA.isVisible(timerview.timer, false);
+  testUA.isVisible(timerview.view.find('.timer'), false);
   testUA.startCall();
-  testUA.isVisible(timerview.timer, false);
+  testUA.isVisible(timerview.view.find('.timer'), false);
   testUA.endCall();
-  testUA.isVisible(timerview.timer, false);
+  testUA.isVisible(timerview.view.find('.timer'), false);
 });
 });

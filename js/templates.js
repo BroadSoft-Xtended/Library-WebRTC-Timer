@@ -16,7 +16,7 @@
 
     // timer.jade compiled template
     templatizer["timer"] = function tmpl_timer() {
-        return '<div class="bdsft-client"><div class="timer fadeable classes"><div class="text"></div></div></div>';
+        return '<div class="bdsft-webrtc"><div class="timer fadeable classes"><div class="text"></div></div></div>';
     };
 
     return templatizer;
