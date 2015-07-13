@@ -8,9 +8,14 @@ describe('timer', function() {
     core = require('webrtc-core');
     testUA = core.testUA;
     testUA.createCore('urlconfig');
-    testUA.createCore('sipstack');
+    testUA.createModelAndView('sipstack', {
+      sipstack: require('webrtc-sipstack')
+    });
     testUA.mockWebRTC();
-    testUA.createModelAndView('timer', {timer: require('../')});
+    testUA.createModelAndView('timer', {
+      timer: require('../'),
+      sipstack: require('webrtc-sipstack')
+    });
   });
 
 it('with audioOnly view', function() {
