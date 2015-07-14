@@ -3,7 +3,9 @@
 Displays a timer for an active call.
 
 Model : bdsft_webrtc.default.timer
+
 View : bdsft_webrtc.default.timerview
+
 Dependencies : [Timer](https://github.com/BroadSoft-Xtended/Library-WebRTC-Timer)
 
 ## Elements
