@@ -11,18 +11,20 @@
     color white
     .text
       text-align center
-  @css {
-    .bdsft-webrtc .timer {
-      color: <%= timerColor %>;
-    }
+
+    &.audioOnly:not(.offerToReceiveVideo)
+      position relative
+      margin-right 10px
+
+    &.enableCallTimer.started
+      {fadeIn}
+
+    &:not(.started)
+      {fadeOut}
+
+@css {
+  .bdsft-webrtc .timer {
+    color: <%= timerColor %>;
   }
+}
 
-  .timer.audioOnly
-    position relative
-    margin-right 10px
-
-  .timer.enableCallTimer.started
-    {fadeIn}
-
-  .timer:not(.started)
-    {fadeOut}

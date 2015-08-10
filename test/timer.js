@@ -15,6 +15,7 @@ describe('timer', function() {
 it('with audioOnly view', function() {
   urlconfig.view = 'audioOnly';
   expect(timer.classes).toEqual(['enableCallTimer', 'audioOnly']);
+  urlconfig.view = 'audioVideo';
 });
 it('format', function() {
   expect(timerview.text.text()).toEqual( '00:00:00');
