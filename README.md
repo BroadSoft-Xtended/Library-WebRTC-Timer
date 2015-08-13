@@ -2,9 +2,7 @@
 
 Displays a timer for an active call.
 
-Model : bdsft_webrtc.default.timer
-
-View : bdsft_webrtc.default.timerview
+Namespace : bdsft_webrtc.default.timer
 
 Dependencies : [SIP Stack](https://github.com/BroadSoft-Xtended/Library-WebRTC-SIPStack)
 
